@@ -1,4 +1,4 @@
-module github.com/undernet/oggloop
+module github.com/yumland/oggloop
 
 go 1.18
 
