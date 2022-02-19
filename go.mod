@@ -1,11 +1,10 @@
-module github.com/nbarena/oggloop
+module github.com/undernet/oggloop
 
 go 1.18
 
 require (
 	github.com/faiface/beep v1.1.0
 	github.com/jfreymuth/oggvorbis v1.0.3
-	github.com/nbarena/formats v0.0.0-20220215002937-290c40b8b06c
 )
 
 require (
