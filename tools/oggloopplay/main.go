@@ -8,7 +8,7 @@ import (
 
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/speaker"
-	"github.com/yumland/oggloop"
+	"github.com/murkland/oggloop"
 )
 
 func main() {
