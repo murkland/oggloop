@@ -71,9 +71,9 @@ func Load(in io.ReadSeekCloser) (beep.StreamCloser, beep.Format, Info, error) {
 		return stream, format, info, nil
 	}
 
-	return Wrap(stream, info), format, info, nil
+	return &streamerAndCloser{Wrap(stream, info), stream}, format, info, nil
 }
 
-func Wrap(stream beep.StreamSeekCloser, info Info) beep.StreamCloser {
-	return &streamerAndCloser{beep.Seq(beep.Take(int(info.LoopStart), stream), beep.Loop(-1, &interval{stream, int(info.LoopStart), int(info.LoopStart + info.LoopLength)})), stream}
+func Wrap(stream beep.StreamSeeker, info Info) beep.Streamer {
+	return beep.Seq(beep.Take(int(info.LoopStart), stream), beep.Loop(-1, &interval{stream, int(info.LoopStart), int(info.LoopStart + info.LoopLength)}))
 }
